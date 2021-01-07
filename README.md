@@ -17,7 +17,7 @@
     - To run ML pipeline that trains classifier and saves the model:
         `python models/train_classifier.py data/DisasterResponse.db models/nb_classifier.pkl`
 
-2. Uncomment lines 235 to 238 in the run.py (app's directory) file and run the following command in the app's directory to run the web app on your local computer:
+2. Type the following command in the app's directory to run the web app on your local computer:
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/ or http://localhost:3001/
@@ -66,6 +66,8 @@ In real life, this could be an important tool to allow that these messages would
 This project results in a web app that can be deployed or run locally and used to classify a disaster message according to its related topics.
 
 It's important to say that further improvements could be developed, especially for increasing the recall for labels that have few or none observations in the dataset, or even for labels that can't be noticed for the model, given the context.
+
+One possible future approach could be applying techniques to smooth the unbalance issue by creating synthetic text (for example, using synonyms) or creating new features that emphasize important words in smaller classes, like it was done for the electricity label, increasing model's ability to capture the label.
 
 The model was build with the purpose of prioritizing the Recall metric, given that, in real life, it would be better to have false positives than false negatives, once that false negatives would lead to disaster messages that would not be properly delivered.
 

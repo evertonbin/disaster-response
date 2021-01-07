@@ -51,6 +51,7 @@ def build_model():
     pipeline = Pipeline([
         ('features', FeatureUnion([
             ('nlp_pipeline', Pipeline([
+                ('tknz', TextTokenizer()),
                 ('vect', CountVectorizer()),
                 ('tfidf', TfidfTransformer())
             ])),
@@ -65,7 +66,6 @@ def build_model():
     ])
     # Setting parameters for GridSearchCV:
     parameters = {
-        'features__nlp_pipeline__vect__stop_words': ['english'],
         'features__nlp_pipeline__vect__ngram_range': [(1,3), (1,4)],
         'features__nlp_pipeline__vect__min_df': [2, 3],
         'features__nlp_pipeline__tfidf__norm': ['l1', 'l2'],

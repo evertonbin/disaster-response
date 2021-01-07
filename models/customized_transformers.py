@@ -13,6 +13,10 @@ class TextTokenizer(BaseEstimator, TransformerMixin):
     '''
     Customized transformer for tokenizing text.
     '''
+    # Adding 'activate' parameter to activate the transformer or not:
+    def __init__(self, activate = True):
+        self.activate = activate
+
     # Defining fit method:
     def fit(self, X, y = None):
         return self
@@ -53,8 +57,13 @@ class TextTokenizer(BaseEstimator, TransformerMixin):
             # Return from tokenizer function:
             tok_text = ' '.join(clean_tokens)
             return tok_text
-        # Return from transform method:
-        return pd.Series(X).apply(tokenizer).values
+        # If activate parameter is set to True:
+        if self.activate:
+            # Return from transform method:
+            return pd.Series(X).apply(tokenizer).values
+        # If activate parameter is set to False:
+        else:
+            pass
 
 # Defining modal verb counter estimator to create new feature:
 class ModalVerbCounter(BaseEstimator, TransformerMixin):

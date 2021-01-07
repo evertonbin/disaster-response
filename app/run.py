@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/models")
+sys.path.append("../models")
 from customized_transformers import TextTokenizer, ModalVerbCounter, NumeralCounter, ElectricityWordCounter, CharacterCounter, CapitalLetterCounter, StartsWithFirstPersonPron
 
 import json
@@ -18,10 +18,10 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 # load data
-engine = create_engine('sqlite:///data/DisasterResponse.db')
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df = pd.read_sql('SELECT * FROM DisasterResponseTable', engine)
 # load model
-model = joblib.load("models/nb_classifier.pkl")
+model = joblib.load("../models/nb_classifier.pkl")
 # index webpage displays cool visuals and receives user input text for model
 @app.route('/')
 @app.route('/index')
@@ -232,7 +232,7 @@ def go():
         query=query,
         classification_result=classification_results
     )
-#def main():
-#    app.run(host='0.0.0.0', port=3001, debug=True)
-#if __name__ == '__main__':
-#    main()
+def main():
+    app.run(host='0.0.0.0', port=3001, debug=True)
+if __name__ == '__main__':
+    main()
