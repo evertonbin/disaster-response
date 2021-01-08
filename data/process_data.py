@@ -44,6 +44,8 @@ def clean_data(df):
     for column in categories:
         # setting each value to its last character:
         categories[column] = categories[column].apply(lambda x: x.split('-')[1])
+        # assuming observations labeled as 2 should be 1:
+        categories[column] = categories[column].apply(lambda x: x.replace('2', '1'))
         # converting column from string to numeric:
         categories[column] = pd.to_numeric(categories[column])
     # Dropping the original 'categories' column from the dataframe:
