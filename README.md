@@ -73,6 +73,8 @@ The model was build with the purpose of prioritizing the Recall metric, given th
 
 It was achieved an average recall close to 75% over the test set, but some classes like 'water' are still tricky for the model to understand.
 
+The project was deployed as a web application, and it can be accessed [here](https://disaster-response-efb.herokuapp.com/).
+
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
 Credits must be given to the [FigureEight](https://appen.com/) company for providing the prelabeled data, and to [Udacity](https://www.udacity.com/) for proposing this amazing project that results in a direct impact on people's lives.
